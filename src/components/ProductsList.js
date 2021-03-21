@@ -3,7 +3,7 @@ import React from 'react'
 import Product from './Product'
 import './../styles/products.sass'
 
-function ProductsList({ products, setProducts }) {
+function ProductsList({ products, setProducts, setCount }) {
    return (
       <section className="products_list">
          {
@@ -15,6 +15,7 @@ function ProductsList({ products, setProducts }) {
                   productId={product.id}
                   setProducts={setProducts}
                   products={products}
+                  setCount={setCount}
                />
             ))
          }

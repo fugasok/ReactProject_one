@@ -3,6 +3,7 @@ import './styles/base_rules.sass'
 //import components
 import ProductAddForm from './components/ProductAddForm'
 import ProductsList from './components/ProductsList'
+import ShoppingCart from './components/ShoppingCart'
 
 
 function App() {
@@ -18,7 +19,10 @@ function App() {
    //Product state
    const [products, setProducts] = useState([]);
 
-   //
+   //cart counter
+   const [countProducts, setCount] = useState(0);
+
+   //show notification about submitting a product
    const [submitting, setSubmitting] = useState(false);
 
    const submitProduct = (e) => {
@@ -36,12 +40,12 @@ function App() {
                   name: productData.name,
                   price: productData.price,
                   image: productData.image,
-                  id: Math.random().toString(36).substr(2, 9)
+                  id: Math.random().toString(36).substr(2, 9),
                }
             ]
          );
          setProductData({ ...defaultFormValues });
-      }, 500);
+      }, 1000);
    };
 
 
@@ -49,17 +53,23 @@ function App() {
       <div className="App">
          <header className="main_header">
             <h1 className="page_title">Tibor's shop</h1>
+
+            <ShoppingCart countProducts={ countProducts } />
          </header>
 
          <main className="main">
-            {submitting && <div className="alert-message">Submtting Form...</div>}
+            {submitting && <div className="alert-message">Submtting Product</div>}
             <ProductAddForm
                productData={productData}
                setProductData={setProductData}
                submitProduct={submitProduct}
             />
 
-            <ProductsList setProducts={setProducts} products={products}/>
+            <ProductsList
+               setProducts={setProducts}
+               products={products}
+               setCount={setCount}
+            />
          </main>
 
          <footer className="main_footer"></footer>

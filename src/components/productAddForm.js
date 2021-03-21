@@ -4,6 +4,9 @@ import './../styles/productAddForm.sass'
 
 function ProductAddForm({ submitProduct, productData, setProductData }) {
 
+   //ToDo:
+   //Add input validation
+
    const productInputHandler = (e) => {
       const { name, value } = e.target;
 
