@@ -7,6 +7,7 @@ $red: red
 $grey: #d1d0d0
 $lgreen: #2ed573
 $coral: #ff7f50
+$inputGrey: #57606f
 
 @mixin btn
    display: inline-block
@@ -23,3 +24,20 @@ $coral: #ff7f50
    &:hover, &:focus
       background: darken($lgreen, 5%)
       letter-spacing: 0
+
+
+@mixin inputStates
+   box-sizing: border-box
+   &::placeholder
+      opacity: 0
+   &:focus
+      box-shadow: none
+   &:valid:focus
+      border-color: $lgreen
+      box-shadow: inset 0 0 5px $lgreen
+   &:invalid:focus
+      border-color: lighten($red, 20%)
+      box-shadow: inset 0 0 5px lighten($red, 20%)
+   &:empty
+      border-color: $white
+      box-shadow: none
