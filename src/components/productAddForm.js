@@ -21,16 +21,22 @@ function ProductAddForm({ submitProduct, productData, setProductData }) {
 
             <div className="addProductForm-item type-file">
                <input id="product_image" type="file" name="image" />
-               <label htmlFor="product_image" className="label">Product name</label>
+               <label htmlFor="product_image" className="label">Product image</label>
             </div>
 
             <div className="addProductForm-item type-text">
-               <input onChange={productInputHandler} value={productData.name} id="product_name" type="text" name="name"/>
+               <input
+                  onChange={productInputHandler}
+                  value={productData.name}
+                  id="product_name" type="text" name="name"/>
                <label htmlFor="product_name" className="label">Product name</label>
             </div>
 
             <div className="addProductForm-item type-number">
-               <input onChange={productInputHandler} value={productData.price} id="product_price" type="number" name="price"/>
+               <input
+                  onChange={productInputHandler}
+                  value={productData.price}
+                  id="product_price" type="number" name="price"/>
                <label htmlFor="product_price" className="label">Product price</label>
             </div>
 
