@@ -29,7 +29,7 @@ function App() {
       //Simulates waiting for the server's response
       setTimeout(() => {
          setSubmitting(false);
-         setProducts([...products, {name: productData.name, price: productData.price, image: productData.image}]);
+         setProducts([...products, {name: productData.name, price: productData.price, image: productData.image, id: Math.random().toString(36).substr(2, 9)}]);
          setProductData({ ...defaultFormValues });
       }, 500);
    };

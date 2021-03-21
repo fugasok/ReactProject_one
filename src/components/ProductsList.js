@@ -10,8 +10,8 @@ function ProductsList({ products }) {
    return (
       <section className="products_list">
          {
-            products.map(product => (
-               <Product productName={product.name} productPrice={product.price}/>
+            products.map((product, index) => (
+               <Product key={index} productName={product.name} productPrice={product.price}/>
             ))
          }
       </section>
