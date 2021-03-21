@@ -1,8 +1,8 @@
 import React from 'react'
-import './../styles/productAddForm.sass'
+import './../styles/AddProductForm.sass'
 
 
-function ProductAddForm({ register, handleSubmit, watch, onSubmit }) {
+function AddProductForm({ register, handleSubmit, watch, onSubmit }) {
 
    // console.log(watch("name"));
 
@@ -36,4 +36,4 @@ function ProductAddForm({ register, handleSubmit, watch, onSubmit }) {
    )
 }
 
-export default ProductAddForm
+export default AddProductForm
