@@ -2,24 +2,46 @@
 
 //62.5% from basic browser's font-size is ~10px (1.6rem = 16px)
 html
+   height: 100%
    font-size: 62.5%
 
 body
-   background: $bg-main
+   height: 100%
+   font-size: 1.4rem
+   background-image: $bg-main
 
+#root
+   height: 100%
 
 .App
+   height: 100%
    display: grid
+   grid-template-areas: '. header .' '. main .' '. footer .'
    grid-template-columns: 1fr 90% 1fr
+   grid-template-rows: 86px auto 0
    .main_header
-      grid-column: 2
+      grid-area: header
 
 h1.page_title
    text-align: center
-   color: $dgreen
+   color: $white
    margin: 0
    padding: 20px 0
    font-size: 3.4rem
    font-weight: 600
    text-transform: uppercase
    letter-spacing: 2px
+
+
+
+main
+   grid-area: main
+
+
+
+
+
+
+
+footer
+   grid-area: footer

@@ -1,29 +1,43 @@
 import React from 'react'
 import './../styles/productAddForm.sass'
 
-function productAddForm() {
+
+function ProductAddForm({ submitProduct, product, setProduct }) {
+
+   const productInputHandlers = (e) => {
+      const { name, value } = e.target;
+
+      setProduct({
+         ...product,
+         [name]: value,
+      });
+   };
+
+
    return (
-      <form className="addProductForm-form">
-         <h2 className="addProductForm-title">Add product form</h2>
+      <section className="addProductForm">
+         <form className="addProductForm-form">
+            <h2 className="addProductForm-title">Add product form</h2>
 
-         <div className="addProductForm-item type-file">
-            <input id="product_image" type="file" name="product_image"/>
-            <label htmlFor="product_image" className="label">Product name</label>
-         </div>
+            <div className="addProductForm-item type-file">
+               <input id="product_image" type="file" name="image" />
+               <label htmlFor="product_image" className="label">Product name</label>
+            </div>
 
-         <div className="addProductForm-item type-text">
-            <input id="product_name" type="text" name="product_name"/>
-            <label htmlFor="product_name" className="label">Product name</label>
-         </div>
+            <div className="addProductForm-item type-text">
+               <input onChange={productInputHandlers} value={product.name} id="product_name" type="text" name="name"/>
+               <label htmlFor="product_name" className="label">Product name</label>
+            </div>
 
-         <div className="addProductForm-item type-number">
-            <input id="product_price" type="number" name="product_price"/>
-            <label htmlFor="product_price" className="label">Product price</label>
-         </div>
+            <div className="addProductForm-item type-number">
+               <input onChange={productInputHandlers} value={product.price} id="product_price" type="number" name="price"/>
+               <label htmlFor="product_price" className="label">Product price</label>
+            </div>
 
-         <button className="addProductForm-add" type="submit">Submit</button>
-      </form>
+            <button onClick={submitProduct} className="addProductForm-add" type="submit">Submit</button>
+         </form>
+      </section>
    )
 }
 
-export default productAddForm
+export default ProductAddForm

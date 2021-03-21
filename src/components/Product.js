@@ -1,9 +1,9 @@
 import React from 'react'
-import './../styles/product.sass'
+import './../styles/products.sass'
 
 function Product() {
    return (
-      <article className="product_list-item product_item">
+      <article className="products_list-item product_item">
          <picture className="product_item-image">
             <img src="" alt=""/>
          </picture>
