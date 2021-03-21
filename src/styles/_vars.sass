@@ -4,3 +4,21 @@ $bg-main: linear-gradient(338deg, #fd7e14 5%, #ffd43b 95%)
 $dgreen: #ffffff
 $alert: #f84949
 $red: red
+$grey: #d1d0d0
+$lgreen: #2ed573
+
+@mixin btn
+   display: inline-block
+   background: $lgreen
+   padding: 15px
+   color: $white
+   border: 0 solid
+   flex: 1 0 100%
+   font-size: 1.8rem
+   font-weight: 600
+   letter-spacing: 1px
+   cursor: pointer
+   transition: all .2s ease
+   &:hover, &:focus
+      background: darken($lgreen, 5%)
+      letter-spacing: 0

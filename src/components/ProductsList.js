@@ -3,15 +3,19 @@ import React from 'react'
 import Product from './Product'
 import './../styles/products.sass'
 
-function ProductsList({ products }) {
-   // const [products, setProduct] = useState(productData);
-   // console.log(productData);
-
+function ProductsList({ products, setProducts }) {
    return (
       <section className="products_list">
          {
-            products.map((product, index) => (
-               <Product key={index} productName={product.name} productPrice={product.price}/>
+            products.map(product => (
+               <Product
+                  key={product.id}
+                  productName={product.name}
+                  productPrice={product.price}
+                  productId={product.id}
+                  setProducts={setProducts}
+                  products={products}
+               />
             ))
          }
       </section>

@@ -15,7 +15,7 @@ function App() {
 
    //get info from inputs
    const [productData, setProductData] = useState(defaultFormValues);
-   //create Object
+   //Product state
    const [products, setProducts] = useState([]);
 
    //
@@ -29,7 +29,17 @@ function App() {
       //Simulates waiting for the server's response
       setTimeout(() => {
          setSubmitting(false);
-         setProducts([...products, {name: productData.name, price: productData.price, image: productData.image, id: Math.random().toString(36).substr(2, 9)}]);
+         //using math.random() just for this test project
+         setProducts(
+            [...products,
+               {
+                  name: productData.name,
+                  price: productData.price,
+                  image: productData.image,
+                  id: Math.random().toString(36).substr(2, 9)
+               }
+            ]
+         );
          setProductData({ ...defaultFormValues });
       }, 500);
    };
@@ -43,9 +53,13 @@ function App() {
 
          <main className="main">
             {submitting && <div className="alert-message">Submtting Form...</div>}
-            <ProductAddForm productData={productData} setProductData={setProductData} submitProduct={submitProduct} />
+            <ProductAddForm
+               productData={productData}
+               setProductData={setProductData}
+               submitProduct={submitProduct}
+            />
 
-            <ProductsList products={products} />
+            <ProductsList setProducts={setProducts} products={products}/>
          </main>
 
          <footer className="main_footer"></footer>
