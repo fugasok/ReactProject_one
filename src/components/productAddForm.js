@@ -2,13 +2,13 @@ import React from 'react'
 import './../styles/productAddForm.sass'
 
 
-function ProductAddForm({ submitProduct, product, setProduct }) {
+function ProductAddForm({ submitProduct, productData, setProductData }) {
 
-   const productInputHandlers = (e) => {
+   const productInputHandler = (e) => {
       const { name, value } = e.target;
 
-      setProduct({
-         ...product,
+      setProductData({
+         ...productData,
          [name]: value,
       });
    };
@@ -25,12 +25,12 @@ function ProductAddForm({ submitProduct, product, setProduct }) {
             </div>
 
             <div className="addProductForm-item type-text">
-               <input onChange={productInputHandlers} value={product.name} id="product_name" type="text" name="name"/>
+               <input onChange={productInputHandler} value={productData.name} id="product_name" type="text" name="name"/>
                <label htmlFor="product_name" className="label">Product name</label>
             </div>
 
             <div className="addProductForm-item type-number">
-               <input onChange={productInputHandlers} value={product.price} id="product_price" type="number" name="price"/>
+               <input onChange={productInputHandler} value={productData.price} id="product_price" type="number" name="price"/>
                <label htmlFor="product_price" className="label">Product price</label>
             </div>
 

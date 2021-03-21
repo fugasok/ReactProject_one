@@ -6,17 +6,26 @@ import ProductsList from './components/ProductsList'
 
 
 function App() {
-	const formValues = {
+	const defaultFormValues = {
 		name: '',
 		price: '',
 		image: '',
 	};
 
-	const [product, setProduct] = useState(formValues);
+	const [productData, setProductData] = useState(defaultFormValues);
+
+   const [submitting, setSubmitting] = useState(false);
 
    const submitProduct = (e) => {
       e.preventDefault();
-      console.log(product);
+      setSubmitting(true);
+      //Object is ready
+      // console.log(productData);
+
+      setTimeout(() => {
+         setSubmitting(false);
+         setProductData({ ...defaultFormValues });
+       }, 1000);
    };
 
 
@@ -27,7 +36,8 @@ function App() {
 			</header>
 
 			<main className="main">
-				<ProductAddForm product={product} setProduct={setProduct} submitProduct={submitProduct}/>
+            { submitting && <div className="alert-message">Submtting Form...</div> }
+				<ProductAddForm productData={productData} setProductData={setProductData} submitProduct={submitProduct}/>
 
 				<ProductsList />
 			</main>
