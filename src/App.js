@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './styles/base_rules.sass'
 //import components
-import ProductAddForm from './components/ProductAddForm'
+import AddProductForm from './components/AddProductForm'
 import ProductsList from './components/ProductsList'
 import ShoppingCart from './components/ShoppingCart'
 
@@ -59,7 +59,7 @@ function App() {
 
          <main className="main">
             {submitting && <div className="alert-message">Submtting Product</div>}
-            <ProductAddForm
+            <AddProductForm
                productData={productData}
                setProductData={setProductData}
                submitProduct={submitProduct}

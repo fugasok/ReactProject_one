@@ -1,8 +1,8 @@
 import React from 'react'
-import './../styles/productAddForm.sass'
+import './../styles/AddProductForm.sass'
 
 
-function ProductAddForm({ submitProduct, productData, setProductData }) {
+function AddProductForm({ submitProduct, productData, setProductData }) {
 
    //ToDo:
    //Add input validation
@@ -49,4 +49,4 @@ function ProductAddForm({ submitProduct, productData, setProductData }) {
    )
 }
 
-export default ProductAddForm
+export default AddProductForm
