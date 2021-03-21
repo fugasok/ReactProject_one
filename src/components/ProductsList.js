@@ -13,6 +13,7 @@ function ProductsList({ products, setProducts, setCount }) {
                   productName={product.name}
                   productPrice={product.price}
                   productId={product.id}
+                  productImage={product.image}
                   setProducts={setProducts}
                   products={products}
                   setCount={setCount}

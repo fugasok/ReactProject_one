@@ -1,7 +1,7 @@
 import React from 'react'
 import './../styles/products.sass'
 
-function Product({ productName, productPrice, productId, products, setProducts, setCount }) {
+function Product({ productName, productPrice, productId, productImage, products, setProducts, setCount }) {
    //delete product
    const deleteHndler = () => {
       setProducts(products.filter(el => el.id !== productId));
@@ -15,7 +15,7 @@ function Product({ productName, productPrice, productId, products, setProducts, 
    return (
       <article className="products_list-item product_item">
          <picture className="product_item-image">
-            <img src="" alt=""/>
+            <img src='' alt=""/>
          </picture>
 
          <h3 className="product_item-title">{ productName }</h3>

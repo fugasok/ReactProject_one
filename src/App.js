@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useForm } from "react-hook-form"
 import './styles/base_rules.sass'
 //import components
 import ProductAddForm from './components/ProductAddForm'
@@ -7,15 +8,6 @@ import ShoppingCart from './components/ShoppingCart'
 
 
 function App() {
-   const defaultFormValues = {
-      name: '',
-      price: '',
-      image: '',
-   };
-
-
-   //get info from inputs
-   const [productData, setProductData] = useState(defaultFormValues);
    //Product state
    const [products, setProducts] = useState([]);
 
@@ -25,11 +17,10 @@ function App() {
    //show notification about submitting a product
    const [submitting, setSubmitting] = useState(false);
 
-   const submitProduct = (e) => {
-      e.preventDefault();
-      setSubmitting(true);
+   const { register, handleSubmit, watch, reset } = useForm();
 
-      //Object is ready
+   const onSubmit = data => {
+      setSubmitting(true);
       //Simulates waiting for the server's response
       setTimeout(() => {
          setSubmitting(false);
@@ -37,17 +28,16 @@ function App() {
          setProducts(
             [...products,
                {
-                  name: productData.name,
-                  price: productData.price,
-                  image: productData.image,
+                  name: data.name,
+                  price: data.price,
+                  image: data.image[0],
                   id: Math.random().toString(36).substr(2, 9),
                }
             ]
          );
-         setProductData({ ...defaultFormValues });
+         reset();
       }, 1000);
    };
-
 
    return (
       <div className="App">
@@ -60,9 +50,10 @@ function App() {
          <main className="main">
             {submitting && <div className="alert-message">Submtting Product</div>}
             <ProductAddForm
-               productData={productData}
-               setProductData={setProductData}
-               submitProduct={submitProduct}
+               register={register}
+               handleSubmit={handleSubmit}
+               onSubmit={onSubmit}
+               watch={watch}
             />
 
             <ProductsList
