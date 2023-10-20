@@ -2,12 +2,7 @@ import React from 'react'
 //import product component
 import './../styles/products.sass'
 
-function ProductsList({ products, setProducts, setCount }) {
-	//delete product
-	const deleteHndler = () => {
-		setProducts(products.filter((el) => el.id !== el.id))
-	}
-
+function ProductsList({ products, setCount, removeProduct }) {
 	const handleIncrement = () => {
 		setCount((prevCount) => prevCount + 1)
 	}
@@ -34,7 +29,7 @@ function ProductsList({ products, setProducts, setCount }) {
 					</button>
 
 					<button
-						onClick={deleteHndler}
+						onClick={(e) => removeProduct(product.id)}
 						className='product_item-delete'
 					></button>
 				</article>

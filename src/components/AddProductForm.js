@@ -51,6 +51,12 @@ function AddProductForm() {
 		setProductForm({ ...defaultFormValues })
 	}
 
+	//remove product
+	const removeProduct = (productId) => {
+		const newProducts = products.filter((product) => product.id !== productId)
+		setProducts(newProducts)
+	}
+
 	return (
 		<>
 			<header className='main_header'>
@@ -130,8 +136,8 @@ function AddProductForm() {
 			</main>
 			<ProductsList
 				products={products}
-				setProducts={setProducts}
 				setCount={setCount}
+				removeProduct={removeProduct}
 			/>
 		</>
 	)
